@@ -59,17 +59,18 @@ uint8_t getPixelValue(Image* srcImage,int x,int y,int bit,Matrix algorithm){
 //            algorithm: The kernel matrix to use for the convolution
 //Returns: Nothing
 void convolute(Image* srcImage,Image* destImage,Matrix algorithm){
-    int row,pix,bit,span,my_rank,total_threads;
+    int row,pix,bit,span;
     span=srcImage->bpp*srcImage->bpp;
+
+    int my_rank = omp_get_thread_num();
+    int total_threads = omp_get_num_threads();
     
-    int start = my_rank * (srcImage->height / omp_get_thread_count());
-    int end   = (my_rank + 1) * (srcImage->height / omp_get_thread_count());
+    int start = my_rank * (srcImage->height / total_threads);
+    int end   = (my_rank + 1) * (srcImage->height / total_threads);
 
     if(my_rank == total_threads - 1) {
         end = srcImage->height;
     }  
-
-    printf("Process %d running from %d to %d", my_rank, start, end);
     
     for (row=start;row<end;row++){
         for (pix=0;pix<srcImage->width;pix++){
