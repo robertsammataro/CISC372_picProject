@@ -1,0 +1,12 @@
+Script started on Tue 18 Apr 2023 05:51:22 PM EDT
+^[]0;robbysam@login00.darwin:~/CISC372_picProject^G^[[?1034h[(ea-cisc372:ro$salloc: Granted job allocation 3984737
+salloc: Waiting for resource configuration
+salloc: Nodes r1n12 are ready for job
+^[]0;robbysam@r1n12.darwin:~/CISC372_picProject^G^[[?1034h[robbysam@r1n12 C$^[]0;robbysam@r1n12.darwin:~/CISC372_picProject^G[robbysam@r1n12 CISC372_pi$Took 6 seconds^M
+^[]0;robbysam@r1n12.darwin:~/CISC372_picProject^G[robbysam@r1n12 CISC372_pi$Took 5 seconds^M
+^[]0;robbysam@r1n12.darwin:~/CISC372_picProject^G[robbysam@r1n12 CISC372_pi$logout^M
+salloc: Relinquishing job allocation 3984737
+salloc: Job allocation 3984737 has been revoked.
+^[]0;robbysam@login00.darwin:~/CISC372_picProject^G[(ea-cisc372:robbysam)@l$exit
+
+Script done on Tue 18 Apr 2023 05:52:33 PM EDT
