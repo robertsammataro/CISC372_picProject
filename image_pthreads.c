@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include "image.h"
+#include <math.h>
 #include <pthread.h>
 
 int thread_count; //Global Variable
