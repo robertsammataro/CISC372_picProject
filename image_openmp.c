@@ -108,7 +108,7 @@ int main(int argc,char** argv){
     t1=time(NULL);
 
     stbi_set_flip_vertically_on_load(0); 
-    if (argc!=4) return Usage();
+    if (argc!=3) return Usage();
     char* fileName=argv[1];
     if (!strcmp(argv[1],"pic4.jpg")&&!strcmp(argv[2],"gauss")){
         printf("You have applied a gaussian filter to Gauss which has caused a tear in the time-space continum.\n");
@@ -126,9 +126,7 @@ int main(int argc,char** argv){
     destImage.width=srcImage.width;
     destImage.data=malloc(sizeof(uint8_t)*destImage.width*destImage.bpp*destImage.height);
 
-    int thread_count = atoi(argv[3]);
-
-    #pragma omp parallel num_threads(thread_count)
+    #pragma omp parallel
     convolute(&srcImage,&destImage,algorithms[type]);
     
     
