@@ -93,12 +93,13 @@ void convolute(Image* srcImage,Image* destImage,Matrix algorithm){
     //Create pthreads and assign ranges
     //Will automatically create four threads, with each thread executing every fourth item to evenly distribute heavier workloads
     pthread_t* thread_array = malloc(thread_count * sizeof(pthread_t));
-    for(int count = 0; count < thread_count; count++) {
+    int count;
+    for(count = 0; count < thread_count; count++) {
         struct arguments args = {count, srcImage, destImage};
         pthread_create(&thread_array[count], NULL, &convoluteThread, (void*) &args);
     }
 
-    for(int count = 0; count < thread_count; count++) {
+    for(count = 0; count < thread_count; count++) {
         pthread_join(thread_array[count], NULL);
     }
     free(thread_array);
